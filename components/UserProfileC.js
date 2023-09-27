@@ -5,22 +5,34 @@ class UserProfileC extends React.Component {
   constructor(props) {
     super(props);
 
+    const {viewBGColor, textColor} = props;
+
     this.state = {
       toggleButton: false,
       textInputValue: '',
+      viewBGColorState: viewBGColor,
+      viewTextColorState: textColor,
     };
   }
 
   render() {
-    const {viewBGColor, textColor} = this.props;
-    const {toggleButton, textInputValue} = this.state;
+    const {toggleButton, textInputValue, viewBGColorState, viewTextColorState} =
+      this.state;
 
     return (
       <View>
-        <Text style={{color: textColor, backgroundColor: viewBGColor}}>
+        <Text
+          style={{
+            color: viewTextColorState,
+            backgroundColor: viewBGColorState,
+          }}>
           Hello world!
         </Text>
-        <Text style={{color: textColor, backgroundColor: viewBGColor}}>
+        <Text
+          style={{
+            color: viewTextColorState,
+            backgroundColor: viewBGColorState,
+          }}>
           this is a class component
         </Text>
         <TextInput
@@ -40,6 +52,42 @@ class UserProfileC extends React.Component {
             this.setState({toggleButton: !toggleButton});
           }}
           title="Tap Button"
+          color="#841584"
+        />
+
+        <Button
+          onPress={() => {
+            this.setState({viewBGColorState: 'red'});
+          }}
+          title="SET TO RED"
+          color="#841584"
+        />
+        <Button
+          onPress={() => {
+            this.setState({viewBGColorState: 'blue'});
+          }}
+          title="SET TO BLUE"
+          color="#841584"
+        />
+        <Button
+          onPress={() => {
+            this.setState({viewBGColorState: 'orange'});
+          }}
+          title="SET TO ORANGE"
+          color="#841584"
+        />
+        <Button
+          onPress={() => {
+            this.setState({viewBGColorState: 'black'});
+          }}
+          title="SET TO BLACK"
+          color="#841584"
+        />
+        <Button
+          onPress={() => {
+            this.setState({viewBGColorState: 'yellow'});
+          }}
+          title="SET TO YELLOW"
           color="#841584"
         />
       </View>
