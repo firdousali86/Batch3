@@ -6,14 +6,15 @@
  */
 
 import React from 'react';
-import {SafeAreaView, Text, View, TextInput} from 'react-native';
-import UserProfileC from './components/UserProfileC';
-import UserProfileF from './components/UserProfileF';
+import {SafeAreaView, Text, View, TextInput, ScrollView} from 'react-native';
+import UserProfile from './components/UserProfile';
 
 function App(): JSX.Element {
   return (
-    <SafeAreaView style={{}}>
-      <UserProfileF viewBGColor={'green'} textColor={'blue'} />
+    <SafeAreaView style={{flex: 1}}>
+      <ScrollView>
+        <UserProfile />
+      </ScrollView>
     </SafeAreaView>
   );
 }
