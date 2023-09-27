@@ -5,15 +5,23 @@
  * @format
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView, Text, View, TextInput, ScrollView} from 'react-native';
 import UserProfile from './components/UserProfile';
+import MyUserList from './components/MyUserList';
 
-function App(): JSX.Element {
+function App() {
+  const [userList, setUserList] = useState([]);
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <ScrollView>
-        <UserProfile />
+        <UserProfile
+          onSubmitPressed={fetchedData => {
+            setUserList([...userList, fetchedData]);
+          }}
+        />
+        <MyUserList userData={userList} />
       </ScrollView>
     </SafeAreaView>
   );

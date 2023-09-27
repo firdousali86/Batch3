@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, Button, ScrollView} from 'react-native';
 
-const UserProfile = () => {
+const UserProfile = props => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [city, setCity] = useState('');
@@ -51,10 +51,17 @@ const UserProfile = () => {
 
       <Button
         onPress={() => {
-          console.log(firstName);
-          console.log(lastName);
-          console.log(city);
-          console.log(country);
+          props.onSubmitPressed({
+            firstName,
+            lastName,
+            city,
+            country,
+          });
+
+          setFirstName('');
+          setLastName('');
+          setCity('');
+          setCountry('');
         }}
         title="Submit"
         color="#841584"
