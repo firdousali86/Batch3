@@ -66,6 +66,14 @@ const UserProfile = props => {
         title="Submit"
         color="#841584"
       />
+
+      <Button
+        onPress={() => {
+          props.onDeletePressed();
+        }}
+        title="Delete"
+        color="#841584"
+      />
     </View>
   );
 };

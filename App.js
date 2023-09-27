@@ -20,8 +20,12 @@ function App() {
           onSubmitPressed={fetchedData => {
             setUserList([...userList, fetchedData]);
           }}
+          onDeletePressed={() => {
+            setUserList([]);
+          }}
         />
-        <MyUserList userData={userList} />
+
+        {userList && userList.length > 0 && <MyUserList userData={userList} />}
       </ScrollView>
     </SafeAreaView>
   );
