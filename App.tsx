@@ -13,7 +13,7 @@ import UserProfileF from './components/UserProfileF';
 function App(): JSX.Element {
   return (
     <SafeAreaView style={{}}>
-      <UserProfileC viewBGColor={'green'} textColor={'orange'} />
+      <UserProfileF viewBGColor={'green'} textColor={'orange'} />
     </SafeAreaView>
   );
 }
