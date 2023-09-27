@@ -15,6 +15,10 @@ class UserProfileC extends React.Component {
     };
   }
 
+  onTapButton = () => {
+    this.setState({toggleButton: !toggleButton});
+  };
+
   render() {
     const {toggleButton, textInputValue, viewBGColorState, viewTextColorState} =
       this.state;
@@ -47,13 +51,7 @@ class UserProfileC extends React.Component {
           Button toggle state is: {toggleButton == true ? 'Yes' : 'No'}
         </Text>
 
-        <Button
-          onPress={() => {
-            this.setState({toggleButton: !toggleButton});
-          }}
-          title="Tap Button"
-          color="#841584"
-        />
+        <Button onPress={this.onTapButton} title="Tap Button" color="#841584" />
 
         <Button
           onPress={() => {

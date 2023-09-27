@@ -9,6 +9,10 @@ const UserProfileF = props => {
 
   // const {viewBGColor, textColor} = props;
 
+  const onTapButton = () => {
+    setToggleButton(!toggleButton);
+  };
+
   return (
     <View>
       <Text style={{color: textColorState, backgroundColor: viewBGColorState}}>
@@ -27,13 +31,7 @@ const UserProfileF = props => {
           setTextInputValue(changedText);
         }}
       />
-      <Button
-        onPress={() => {
-          setToggleButton(!toggleButton);
-        }}
-        title="Tap Button"
-        color="#841584"
-      />
+      <Button onPress={onTapButton} title="Tap Button" color="#841584" />
 
       <Button
         onPress={() => {
