@@ -14,8 +14,10 @@ import {
   ScrollView,
   Image,
 } from 'react-native';
-import UserProfile from './components/UserProfile';
-import MyUserList from './components/MyUserList';
+
+import {UserProfile, MyUserList} from './components';
+
+import styles from './style';
 
 function App() {
   const [userList, setUserList] = useState([]);
@@ -24,7 +26,7 @@ function App() {
     <SafeAreaView style={{flex: 1}}>
       <ScrollView>
         <UserProfile
-          childrenStyle={{backgroundColor: 'red', margin: 10}}
+          childrenStyle={styles.userProfileStyle}
           onSubmitPressed={fetchedData => {
             setUserList([...userList, fetchedData]);
           }}
@@ -34,13 +36,14 @@ function App() {
           <Text>first child node</Text>
           <Text>second child node</Text>
           <Text>third child node</Text>
+
+          <Image
+            style={styles.imageStyle}
+            source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
+          />
         </UserProfile>
 
         {userList && userList.length > 0 && <MyUserList userData={userList} />}
-        <Image
-          style={{width: 50, height: 50}}
-          source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
-        />
       </ScrollView>
     </SafeAreaView>
   );
