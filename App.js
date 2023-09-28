@@ -21,11 +21,33 @@ import styles from './style';
 
 function App() {
   const [userList, setUserList] = useState([]);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
 
   return (
     <SafeAreaView style={{flex: 1}}>
       <ScrollView>
+        <TextInput
+          value={firstName}
+          onChangeText={changedText => {
+            setFirstName(changedText);
+          }}
+          style={{backgroundColor: 'yellow', height: 40, margin: 10}}
+        />
+
+        <TextInput
+          value={lastName}
+          onChangeText={changedText => {
+            setLastName(changedText);
+          }}
+          style={{backgroundColor: 'yellow', height: 40, margin: 10}}
+        />
+
         <UserProfile
+          firstName={firstName}
+          lastName={lastName}
+          city={'Karachi'}
+          country={'Pakistan'}
           childrenStyle={styles.userProfileStyle}
           onSubmitPressed={fetchedData => {
             setUserList([...userList, fetchedData]);
