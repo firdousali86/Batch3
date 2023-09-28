@@ -74,6 +74,8 @@ const UserProfile = props => {
         title="Delete"
         color="#841584"
       />
+
+      <View style={props.childrenStyle}>{props.children}</View>
     </View>
   );
 };
