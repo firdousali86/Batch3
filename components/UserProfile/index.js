@@ -99,6 +99,13 @@ const UserProfile = props => {
         color="#841584"
       />
 
+      <Button
+        title="pass data forcefully"
+        onPress={() => {
+          props.onForcefulUpdateRequest('Muhammad');
+        }}
+      />
+
       <View style={props.childrenStyle}>{props.children}</View>
     </View>
   );

@@ -15,8 +15,8 @@ const TestStatePropsScreen = props => {
   // console.log(props.route.params);
 
   const [userList, setUserList] = useState([]);
-  const [firstName, setFirstName] = useState(props.route.params.firstName);
-  const [lastName, setLastName] = useState(props.route.params.lastName);
+  const [firstName, setFirstName] = useState(props.route.params?.firstName);
+  const [lastName, setLastName] = useState(props.route.params?.lastName);
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -45,6 +45,9 @@ const TestStatePropsScreen = props => {
           childrenStyle={styles.userProfileStyle}
           onSubmitPressed={fetchedData => {
             setUserList([...userList, fetchedData]);
+          }}
+          onForcefulUpdateRequest={newDataFromChild => {
+            setFirstName(newDataFromChild);
           }}
           onDeletePressed={() => {
             setUserList([]);
