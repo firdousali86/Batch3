@@ -1,7 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 
-const TestFlexScreen = ({navigation}) => {
+const TestFlexScreen = ({route, navigation}) => {
+  useEffect(() => {
+    if (route.params) {
+      console.log(route.params);
+    }
+  }, [route.params]);
+
   return (
     <View
       style={{

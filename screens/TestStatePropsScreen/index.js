@@ -87,6 +87,18 @@ const TestStatePropsScreen = props => {
           }}>
           <Text>Navigate Go Back</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={() => {
+            props.navigation.navigate({
+              name: 'testFlex',
+              params: {a: 'b', c: 'd', e: 'f'},
+              merge: true,
+            });
+          }}>
+          <Text>send data back</Text>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );
