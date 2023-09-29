@@ -17,8 +17,16 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="testFlex" component={TestFlexScreen} />
-        <Stack.Screen name="testStateProps" component={TestStatePropsScreen} />
+        <Stack.Screen
+          name="testFlex"
+          component={TestFlexScreen}
+          options={{title: 'Testing Flex System'}}
+        />
+        <Stack.Screen
+          name="testStateProps"
+          component={TestStatePropsScreen}
+          options={{title: 'Test State and Props'}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

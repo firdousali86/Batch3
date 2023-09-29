@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 
-const TestFlexScreen = () => {
+const TestFlexScreen = ({navigation}) => {
   return (
     <View
       style={{
@@ -28,6 +28,20 @@ const TestFlexScreen = () => {
           alignSelf: 'flex-end',
         }}></View>
       <Text>sample text</Text>
+
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('testStateProps');
+        }}
+        style={{
+          height: 40,
+          backgroundColor: 'blue',
+          width: 350,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <Text style={{color: 'white'}}>Press</Text>
+      </TouchableOpacity>
     </View>
   );
 };
