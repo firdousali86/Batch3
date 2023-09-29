@@ -31,7 +31,10 @@ const TestFlexScreen = ({navigation}) => {
 
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('testStateProps');
+          navigation.navigate('testStateProps', {
+            firstName: 'Firdous',
+            lastName: 'Ali',
+          });
         }}
         style={{
           height: 40,
