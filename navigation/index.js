@@ -7,6 +7,7 @@ import {
   TestStatePropsScreen,
   Dashboard,
   Login,
+  TestPureComponent,
 } from '../screens';
 
 const Stack = createNativeStackNavigator();
@@ -16,6 +17,16 @@ const Navigator = () => {
     return (
       <Stack.Group>
         <Stack.Screen
+          name="testPureComponent"
+          component={TestPureComponent}
+          options={{title: 'Test Pure Component'}}
+        />
+        <Stack.Screen
+          name="testStateProps"
+          component={TestStatePropsScreen}
+          options={{title: 'Test State and Props'}}
+        />
+        <Stack.Screen
           name="dashboard"
           component={Dashboard}
           options={{title: 'Dashboard'}}
@@ -24,11 +35,6 @@ const Navigator = () => {
           name="testFlex"
           component={TestFlexScreen}
           options={{title: 'Testing Flex System'}}
-        />
-        <Stack.Screen
-          name="testStateProps"
-          component={TestStatePropsScreen}
-          options={{title: 'Test State and Props'}}
         />
       </Stack.Group>
     );

@@ -12,11 +12,12 @@ import {UserProfile, MyUserList} from '../../components';
 import styles from './styles';
 
 const TestStatePropsScreen = props => {
-  // console.log(props.route.params);
-
   const [userList, setUserList] = useState([]);
   const [firstName, setFirstName] = useState(props.route.params?.firstName);
   const [lastName, setLastName] = useState(props.route.params?.lastName);
+  const [schoolName, setSchoolName] = useState('');
+
+  console.log('render of test state props');
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -33,6 +34,14 @@ const TestStatePropsScreen = props => {
           value={lastName}
           onChangeText={changedText => {
             setLastName(changedText);
+          }}
+          style={{backgroundColor: 'yellow', height: 40, margin: 10}}
+        />
+
+        <TextInput
+          value={schoolName}
+          onChangeText={changedText => {
+            setSchoolName(changedText);
           }}
           style={{backgroundColor: 'yellow', height: 40, margin: 10}}
         />

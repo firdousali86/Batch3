@@ -2,20 +2,16 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, TextInput, Button, ScrollView} from 'react-native';
 
 const UserProfile = props => {
-  console.log('hey! userprofil recived yet another re render');
-
   const [firstName, setFirstName] = useState(props.firstName);
   const [lastName, setLastName] = useState(props.lastName);
   const [city, setCity] = useState(props.city);
   const [country, setCountry] = useState(props.country);
 
   useEffect(() => {
-    console.log('hey! firstname just got changed');
     setFirstName(props.firstName);
   }, [props.firstName]);
 
   useEffect(() => {
-    console.log('hey! lastname just got changed');
     setLastName(props.lastName);
   }, [props.lastName]);
 
@@ -37,6 +33,8 @@ const UserProfile = props => {
     margin: 10,
     padding: 10,
   };
+
+  console.log('render of user profile');
 
   return (
     <View style={{flex: 1}}>
