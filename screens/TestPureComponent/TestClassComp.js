@@ -19,8 +19,8 @@ class TestClassComp extends React.Component {
     //   !_.isEqual(nextProps, this.props) || !_.isEqual(nextState, this.state)
     // );
 
-    return true;
-    // return nextProps.errorMessage !== this.props.errorMessage;
+    // return true;
+    return nextProps.errorMessage !== this.props.errorMessage;
   }
 
   render() {
