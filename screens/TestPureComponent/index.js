@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useCallback} from 'react';
 import {View, TextInput} from 'react-native';
 
 import TestClassComp from './TestClassComp';
@@ -9,6 +9,10 @@ const TestPureComponent = () => {
   const [inputVal2, setInputVal2] = useState('');
 
   console.log('test pure component is rendering');
+
+  const mymethod = useCallback(() => {
+    console.log('some console log');
+  }, []);
 
   return (
     <View>
@@ -30,7 +34,7 @@ const TestPureComponent = () => {
         style={{backgroundColor: 'yellow', height: 40, margin: 10, padding: 5}}
       />
 
-      <TestFuncComp someprop={inputVal} someprop2={inputVal2} />
+      <TestClassComp someprop={inputVal} />
     </View>
   );
 };
