@@ -1,5 +1,6 @@
 import {useState, memo, useMemo} from 'react';
 import {Text, View, TextInput, TouchableOpacity} from 'react-native';
+import _ from 'lodash';
 
 const TestFuncComp = props => {
   const [testvalue, settestvalue] = useState('');
@@ -44,4 +45,6 @@ const expensiveCalculation = num => {
   return num;
 };
 
-export default memo(TestFuncComp);
+export default memo(TestFuncComp, (prevProps, nextProps) => {
+  return prevProps.someprop === nextProps.someprop;
+});

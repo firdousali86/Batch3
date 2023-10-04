@@ -47,7 +47,7 @@ const TestPureComponent = () => {
         style={{backgroundColor: 'yellow', height: 40, margin: 10, padding: 5}}
       />
 
-      <TestClassComp someprop={inputVal} />
+      <TestFuncComp someprop={inputVal} someprop2={inputVal2} />
     </View>
   );
 };
