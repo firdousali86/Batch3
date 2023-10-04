@@ -1,12 +1,24 @@
-import {useState, useCallback} from 'react';
+import {useState, useCallback, useEffect} from 'react';
 import {View, TextInput} from 'react-native';
 
 import TestClassComp from './TestClassComp';
 import TestFuncComp from './TestFuncComp';
 
+import {PersistanceHelper} from '../../helpers';
+
 const TestPureComponent = () => {
   const [inputVal, setInputVal] = useState('');
   const [inputVal2, setInputVal2] = useState('');
+
+  useEffect(() => {
+    myAsyncFetchMethod();
+  }, []);
+
+  const myAsyncFetchMethod = async () => {
+    const fetchedvalue = await PersistanceHelper.getValue('testkey');
+
+    console.log(fetchedvalue);
+  };
 
   console.log('test pure component is rendering');
 
