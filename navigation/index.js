@@ -19,9 +19,13 @@ const Navigator = () => {
   useEffect(() => {
     fetchUserEmail();
 
-    EventRegister.addEventListener('LoginEvent', data => {
+    let event = EventRegister.addEventListener('LoginEvent', data => {
       fetchUserEmail();
     });
+
+    return () => {
+      EventRegister.removeEventListener(event);
+    };
   }, []);
 
   const fetchUserEmail = async () => {
