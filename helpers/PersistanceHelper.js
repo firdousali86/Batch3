@@ -20,6 +20,18 @@ class PersistanceHelper {
       console.log('write error: ' + exception);
     }
   };
+
+  setObject = (key, value) => {
+    const serializedObject = JSON.stringify(value);
+
+    this.setValue(key, serializedObject);
+  };
+
+  getObject = async key => {
+    const serializedObject = await this.getValue(key);
+
+    return JSON.parse(serializedObject);
+  };
 }
 
 export default new PersistanceHelper();
