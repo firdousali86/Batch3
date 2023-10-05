@@ -22,9 +22,11 @@ class PersistanceHelper {
   };
 
   setObject = (key, value) => {
-    const serializedObject = JSON.stringify(value);
+    if (typeof value === 'object' || typeof value === 'array') {
+      const serializedObject = JSON.stringify(value);
 
-    this.setValue(key, serializedObject);
+      this.setValue(key, serializedObject);
+    }
   };
 
   getObject = async key => {
