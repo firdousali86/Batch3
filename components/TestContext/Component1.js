@@ -4,7 +4,6 @@ import {View, Text, TextInput} from 'react-native';
 import Component2 from './Component2';
 import Component5 from './Component5';
 
-// import {MyContextProvider} from '../../contexts/MyContext';
 import {UserContextProvider} from '../../contexts/UserContext';
 
 const Component1 = () => {

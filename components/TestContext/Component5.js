@@ -1,16 +1,13 @@
-// import {useContext} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TextInput} from 'react-native';
 
-// import {useMyContext} from '../../contexts/MyContext';
 import {useUserContext} from '../../contexts/UserContext';
 
 const Component5 = () => {
   console.log('5 got rerendered');
 
-  //   const user = useContext(UserContext);
-  //   const {somedata, setData} = useMyContext();
   const {
     state: {data},
+    actions: {setData},
   } = useUserContext();
 
   return (
@@ -19,6 +16,13 @@ const Component5 = () => {
         <Text>Component 5</Text>
       </View>
       <View>
+        <TextInput
+          value={data}
+          onChangeText={changedText => {
+            setData(changedText);
+          }}
+          style={{backgroundColor: 'pink', height: 40, margin: 5, padding: 5}}
+        />
         <Text>{`Hello ${data} again!`}</Text>
       </View>
     </View>

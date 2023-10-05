@@ -5,6 +5,10 @@ const UserContext = createContext({state: {}, actions: {}});
 export function UserContextProvider({children, username}) {
   const [data, setData] = useState(username);
 
+  useEffect(() => {
+    setData(username);
+  }, [username]);
+
   const value = {
     state: {data},
     actions: {setData},
