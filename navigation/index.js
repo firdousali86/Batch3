@@ -9,6 +9,7 @@ import {
   Dashboard,
   Login,
   TestPureComponent,
+  TestPropsScreen,
 } from '../screens';
 
 const Stack = createNativeStackNavigator();
@@ -41,6 +42,11 @@ const Navigator = () => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="testPropsScreen"
+          component={TestPropsScreen}
+          options={{title: 'Test Props Component'}}
+        />
         <Stack.Screen
           name="testPureComponent"
           component={TestPureComponent}
