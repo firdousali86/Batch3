@@ -11,6 +11,7 @@ import {
   TestPureComponent,
   TestPropsScreen,
   TestReduxScreen,
+  TestReduxClassScreen,
 } from '../screens';
 
 const Stack = createNativeStackNavigator();
@@ -46,8 +47,14 @@ const Navigator = () => {
         <Stack.Screen
           name="testReduxScreen"
           component={TestReduxScreen}
-          options={{title: 'Test Props Component'}}
+          options={{title: 'Test Reduc func Component'}}
         />
+        <Stack.Screen
+          name="testReduxClassScreen"
+          component={TestReduxClassScreen}
+          options={{title: 'Test Redux class Component'}}
+        />
+
         <Stack.Screen
           name="testPropsScreen"
           component={TestPropsScreen}
