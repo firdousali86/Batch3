@@ -4,6 +4,7 @@ import Dashboard from './Dashboard';
 import Login from './Login';
 import TestPureComponent from './TestPureComponent';
 import TestPropsScreen from './TestPropsScreen';
+import TestReduxScreen from './TestReduxScreen';
 
 export {
   TestFlexScreen,
@@ -12,4 +13,5 @@ export {
   Login,
   TestPureComponent,
   TestPropsScreen,
+  TestReduxScreen,
 };
