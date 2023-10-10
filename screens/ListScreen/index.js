@@ -13,12 +13,24 @@ const itemList = [
   {name: 'Workstation', details: '4 cubicles', price: 400},
 ];
 
-const ListScreen = () => {
+const ListScreen = props => {
   const dispatch = useDispatch();
 
   return (
-    <View>
-      <Text>test</Text>
+    <View style={{flex: 1}}>
+      <TouchableOpacity
+        onPress={() => {
+          props.navigation.navigate('cartScreen');
+        }}
+        style={{
+          marginHorizontal: 10,
+          backgroundColor: 'blue',
+          height: 40,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <Text style={{color: 'white'}}>Open Cart View</Text>
+      </TouchableOpacity>
       <FlatList
         data={itemList}
         renderItem={({item, index}) => {

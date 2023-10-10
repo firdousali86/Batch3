@@ -7,6 +7,7 @@ import TestPropsScreen from './TestPropsScreen';
 import TestReduxScreen from './TestReduxScreen';
 import TestReduxClassScreen from './TestReduxClassScreen';
 import ListScreen from './ListScreen';
+import CartScreen from './CartScreen';
 
 export {
   TestFlexScreen,
@@ -18,4 +19,5 @@ export {
   TestReduxScreen,
   TestReduxClassScreen,
   ListScreen,
+  CartScreen,
 };

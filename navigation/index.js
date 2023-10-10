@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {} from 'react-native';
+import {Button} from 'react-native';
 import {PersistanceHelper} from '../helpers';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {EventRegister} from 'react-native-event-listeners';
@@ -13,11 +13,12 @@ import {
   TestReduxScreen,
   TestReduxClassScreen,
   ListScreen,
+  CartScreen,
 } from '../screens';
 
 const Stack = createNativeStackNavigator();
 
-const Navigator = () => {
+const Navigator = props => {
   const [isUserLoggedin, setIsUserLoggedin] = useState(false);
 
   useEffect(() => {
@@ -48,7 +49,23 @@ const Navigator = () => {
         <Stack.Screen
           name="listScreen"
           component={ListScreen}
-          options={{title: 'Test Reduc func Component'}}
+          options={{
+            title: 'List Screen',
+            headerRight: () => (
+              <Button
+                onPress={() => {
+                  console.log('test');
+                }}
+                title="Info"
+                color="red"
+              />
+            ),
+          }}
+        />
+        <Stack.Screen
+          name="cartScreen"
+          component={CartScreen}
+          options={{title: 'Cart Screen'}}
         />
         <Stack.Screen
           name="testReduxScreen"
