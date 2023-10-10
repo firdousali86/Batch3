@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import {Button} from 'react-native';
 import {PersistanceHelper} from '../helpers';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {useNavigation} from '@react-navigation/native';
 import {EventRegister} from 'react-native-event-listeners';
 import {
   TestFlexScreen,
@@ -19,6 +20,8 @@ import {
 const Stack = createNativeStackNavigator();
 
 const Navigator = props => {
+  const navigation = useNavigation();
+
   const [isUserLoggedin, setIsUserLoggedin] = useState(false);
 
   useEffect(() => {
@@ -54,9 +57,9 @@ const Navigator = props => {
             headerRight: () => (
               <Button
                 onPress={() => {
-                  console.log('test');
+                  navigation.navigate('cartScreen');
                 }}
-                title="Info"
+                title="Cart"
                 color="red"
               />
             ),
