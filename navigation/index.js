@@ -16,6 +16,7 @@ import {
   ListScreen,
   CartScreen,
   ListApiScreen,
+  TestRefScreen,
 } from '../screens';
 
 const Stack = createNativeStackNavigator();
@@ -23,7 +24,7 @@ const Stack = createNativeStackNavigator();
 const Navigator = props => {
   const navigation = useNavigation();
 
-  const [isUserLoggedin, setIsUserLoggedin] = useState(false);
+  const [isUserLoggedin, setIsUserLoggedin] = useState(true);
 
   useEffect(() => {
     fetchUserEmail();
@@ -50,6 +51,11 @@ const Navigator = props => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="testRefScreen"
+          component={TestRefScreen}
+          options={{title: 'Test Ref Screen'}}
+        />
         <Stack.Screen
           name="listApiScreen"
           component={ListApiScreen}
@@ -128,11 +134,7 @@ const Navigator = props => {
     );
   };
 
-  return (
-    <Stack.Navigator>
-      {isUserLoggedin ? getMainStack() : getAuthStack()}
-    </Stack.Navigator>
-  );
+  return <Stack.Navigator>{getMainStack()}</Stack.Navigator>;
 };
 
 export default Navigator;
