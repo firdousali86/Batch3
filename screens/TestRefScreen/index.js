@@ -5,9 +5,12 @@ import {CustomComponent} from '../../components';
 const TestRefScreen = () => {
   const [inputVal, setInputVal] = useState('');
   const [inputVal2, setInputVal2] = useState('');
+  const [datevar, setdatevar] = useState(undefined);
 
   const inputRef = useRef(null);
   const inputRef2 = useRef(null);
+
+  const myCounter = useRef(0);
 
   const customComponentRef = useRef(null);
 
@@ -55,6 +58,23 @@ const TestRefScreen = () => {
           customComponentRef.current.setCountryName('Pakistan');
         }}>
         <Text>CASE 2</Text>
+      </TouchableOpacity>
+
+      <View>
+        <Text>{myCounter.current}</Text>
+      </View>
+
+      <TouchableOpacity
+        onPress={() => {
+          //   mycounter += 1;
+
+          //   console.log(mycounter);
+
+          myCounter.current += 1;
+
+          setdatevar(new Date());
+        }}>
+        <Text>Increase counter</Text>
       </TouchableOpacity>
     </View>
   );
