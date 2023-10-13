@@ -1,5 +1,6 @@
 import {useRef, useState} from 'react';
 import {Text, View, TextInput, TouchableOpacity} from 'react-native';
+import {CustomComponent} from '../../components';
 
 const TestRefScreen = () => {
   const [inputVal, setInputVal] = useState('');
@@ -7,6 +8,8 @@ const TestRefScreen = () => {
 
   const inputRef = useRef(null);
   const inputRef2 = useRef(null);
+
+  const customComponentRef = useRef(null);
 
   return (
     <View>
@@ -36,6 +39,22 @@ const TestRefScreen = () => {
           inputRef2.current.focus();
         }}>
         <Text>Press</Text>
+      </TouchableOpacity>
+
+      <CustomComponent ref={customComponentRef} />
+
+      <TouchableOpacity
+        onPress={() => {
+          customComponentRef.current.setCityName('Karachi');
+        }}>
+        <Text>CASE 1</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          customComponentRef.current.setCountryName('Pakistan');
+        }}>
+        <Text>CASE 2</Text>
       </TouchableOpacity>
     </View>
   );
