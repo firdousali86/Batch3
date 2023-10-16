@@ -449,7 +449,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.itc.Batch3";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.itc.batch3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Batch3.app/Batch3";
 			};
@@ -473,7 +473,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.itc.Batch3";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.itc.batch3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Batch3.app/Batch3";
 			};
@@ -498,7 +498,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.itc.Batch3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.itc.batch3;
 				PRODUCT_NAME = Batch3;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -524,7 +524,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.itc.Batch3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.itc.batch3;
 				PRODUCT_NAME = Batch3;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

@@ -1,4 +1,4 @@
-package com.batch3;
+package com.itc.batch3;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
