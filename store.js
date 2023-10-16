@@ -3,6 +3,7 @@ import counterReducer from './features/counter/counterSlice';
 import carReducer from './features/cars/carSlice';
 import cartReducer from './features/cart/cartSlice';
 import {createLogger} from 'redux-logger';
+import {todosApi} from './config/todosApi';
 
 const isDebuggingInChrome = __DEV__ && !!window.navigator.userAgent;
 
@@ -18,6 +19,8 @@ export const store = configureStore({
     counter: counterReducer,
     car: carReducer,
     cart: cartReducer,
+    todos: todosApi.reducer,
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(logger, todosApi.middleware),
 });

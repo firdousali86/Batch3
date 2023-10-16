@@ -17,6 +17,7 @@ import {
   CartScreen,
   ListApiScreen,
   TestRefScreen,
+  TestReduxQuery,
 } from '../screens';
 
 const Stack = createNativeStackNavigator();
@@ -51,6 +52,11 @@ const Navigator = props => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="testReduxQuery"
+          component={TestReduxQuery}
+          options={{title: 'Test Redux Query Screen'}}
+        />
         <Stack.Screen
           name="testRefScreen"
           component={TestRefScreen}
