@@ -4,6 +4,7 @@ import {PersistanceHelper} from '../helpers';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useNavigation} from '@react-navigation/native';
 import {EventRegister} from 'react-native-event-listeners';
+import {useDispatch, useSelector} from 'react-redux';
 import {
   TestFlexScreen,
   TestStatePropsScreen,
@@ -23,35 +24,43 @@ import {
 const Stack = createNativeStackNavigator();
 
 const Navigator = props => {
+  const user = useSelector(state => state.user);
   const navigation = useNavigation();
 
-  const [isUserLoggedin, setIsUserLoggedin] = useState(true);
-
   useEffect(() => {
-    fetchUserEmail();
+    // fetchUserEmail();
 
-    let event = EventRegister.addEventListener('LoginEvent', data => {
-      fetchUserEmail();
-    });
+    // let event = EventRegister.addEventListener('LoginEvent', data => {
+    //   fetchUserEmail();
+    // });
 
     return () => {
-      EventRegister.removeEventListener(event);
+      // EventRegister.removeEventListener(event);
     };
   }, []);
 
-  const fetchUserEmail = async () => {
-    const userEmail = await PersistanceHelper.getValue('userEmail');
+  // const fetchUserEmail = async () => {
+  //   const userEmail = await PersistanceHelper.getValue('userEmail');
 
-    if (userEmail && userEmail.length > 0) {
-      setIsUserLoggedin(true);
-    } else {
-      setIsUserLoggedin(false);
-    }
+  //   if (userEmail && userEmail.length > 0) {
+  //     setIsUserLoggedin(true);
+  //   } else {
+  //     setIsUserLoggedin(false);
+  //   }
+  // };
+
+  const isUserLoggedIn = () => {
+    return user?.data?.id && user?.data?.id?.length > 15;
   };
 
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="listApiScreen"
+          component={ListApiScreen}
+          options={{title: 'List Api Screen'}}
+        />
         <Stack.Screen
           name="testReduxQuery"
           component={TestReduxQuery}
@@ -62,11 +71,7 @@ const Navigator = props => {
           component={TestRefScreen}
           options={{title: 'Test Ref Screen'}}
         />
-        <Stack.Screen
-          name="listApiScreen"
-          component={ListApiScreen}
-          options={{title: 'List Api Screen'}}
-        />
+
         <Stack.Screen
           name="listScreen"
           component={ListScreen}
@@ -140,7 +145,11 @@ const Navigator = props => {
     );
   };
 
-  return <Stack.Navigator>{getMainStack()}</Stack.Navigator>;
+  return (
+    <Stack.Navigator>
+      {isUserLoggedIn() ? getMainStack() : getAuthStack()}
+    </Stack.Navigator>
+  );
 };
 
 export default Navigator;

@@ -1,23 +1,45 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import EncryptedStorage from 'react-native-encrypted-storage';
 
 class PersistanceHelper {
-  setValue = async (key, value) => {
-    try {
-      await AsyncStorage.setItem(key, value);
+  setValue = async (key, value, isEncrypted = false) => {
+    if (isEncrypted) {
+      //implement encrypted storage
+      try {
+        await EncryptedStorage.setItem(key, value);
 
-      console.log('written successfully');
-    } catch (exception) {
-      console.log('write error: ' + exception);
+        // Congrats! You've just stored your first value!
+      } catch (error) {
+        // There was an error on the native side
+      }
+    } else {
+      try {
+        await AsyncStorage.setItem(key, value);
+
+        console.log('written successfully');
+      } catch (exception) {
+        console.log('write error: ' + exception);
+      }
     }
   };
 
-  getValue = async key => {
-    try {
-      const value = await AsyncStorage.getItem(key);
+  getValue = async (key, isEncrypted = false) => {
+    if (isEncrypted) {
+      try {
+        const value = await EncryptedStorage.getItem(key);
 
-      return value;
-    } catch (ex) {
-      console.log('write error: ' + exception);
+        return value;
+      } catch (error) {
+        // There was an error on the native side
+      }
+    } else {
+      try {
+        const value = await AsyncStorage.getItem(key);
+
+        return value;
+      } catch (ex) {
+        console.log('write error: ' + exception);
+      }
     }
   };
 
