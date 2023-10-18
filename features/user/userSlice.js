@@ -17,6 +17,8 @@ const userSlice = createSlice({
       //save id seperately in secure async storage
       //   PersistanceHelper.setValue('accessToken', id, true);
 
+      PersistanceHelper.setValue('accessToken', action.payload.id);
+
       state.data = action.payload;
       state.isFetching = false;
       state.failure = false;

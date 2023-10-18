@@ -1,12 +1,20 @@
 import {take, put, call, fork} from 'redux-saga/effects';
 
 import {itemsActions} from '../features/items/itemsSlice';
-import {ApiHelper} from '../helpers';
+import {ApiHelper, PersistanceHelper} from '../helpers';
 
 const {request, success, failure} = itemsActions;
 
 function callGetRequest(url, data, headers) {
   return ApiHelper.get(url, data, headers);
+}
+
+function callPostRequest(url, data, headers) {
+  return ApiHelper.post(url, data, headers);
+}
+
+function getAccessToken() {
+  return PersistanceHelper.getValue('accessToken');
 }
 
 function* watchRequest() {
@@ -16,7 +24,20 @@ function* watchRequest() {
     try {
       let response;
 
-      response = yield call(callGetRequest, payload.url, {});
+      if (payload?.data?.requestType === 'POST') {
+        const {requestType, ...rest} = payload.data;
+
+        const accessToken = yield call(getAccessToken);
+
+        console.log(accessToken);
+
+        response = yield call(callPostRequest, payload.url, rest, {
+          'X-Access-Token': accessToken,
+        });
+      } else {
+        console.log('it came here');
+        response = yield call(callGetRequest, payload.url, {});
+      }
 
       yield put(success(response));
     } catch (err) {
