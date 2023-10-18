@@ -62,6 +62,12 @@ const Navigator = props => {
           options={{title: 'List Api Screen'}}
         />
         <Stack.Screen
+          name="dashboard"
+          component={Dashboard}
+          options={{title: 'Dashboard'}}
+        />
+
+        <Stack.Screen
           name="testReduxQuery"
           component={TestReduxQuery}
           options={{title: 'Test Redux Query Screen'}}
@@ -119,11 +125,7 @@ const Navigator = props => {
           component={TestStatePropsScreen}
           options={{title: 'Test State and Props'}}
         />
-        <Stack.Screen
-          name="dashboard"
-          component={Dashboard}
-          options={{title: 'Dashboard'}}
-        />
+
         <Stack.Screen
           name="testFlex"
           component={TestFlexScreen}

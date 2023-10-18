@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import {View, Text, FlatList} from 'react-native';
-import {kApiTodos} from '../../config/WebServices';
+import {kApiTodos, kApiGetItems} from '../../config/WebServices';
 import {ApiHelper} from '../../helpers';
 import {useDispatch, useSelector} from 'react-redux';
 import {itemsActions} from '../../features/items/itemsSlice';
@@ -15,7 +15,7 @@ const ListApiScreen = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    dispatch(request({url: kApiTodos}));
+    dispatch(request({url: kApiGetItems}));
     // requestApi();
   }, []);
 
@@ -35,6 +35,8 @@ const ListApiScreen = () => {
               <Text>{item.title}</Text>
               <Text>{item.id}</Text>
               <Text>{item.userId}</Text>
+              <Text>{item.image}</Text>
+              <Text>{item.details}</Text>
             </View>
           );
         }}

@@ -27,6 +27,9 @@ const userSlice = createSlice({
       state.errorMessage = action.errorMessage;
       state.failure = true;
     },
+    logout: state => {
+      state.data = {};
+    },
   },
 });
 
