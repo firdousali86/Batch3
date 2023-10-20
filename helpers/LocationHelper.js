@@ -19,23 +19,47 @@ class LocationHelper {
     );
   };
 
+  trackUserLocation = (success, failure) => {
+    GeoLocation.watchPosition(
+      locationObject => {
+        if (success) {
+          success(locationObject);
+        }
+      },
+      error => {
+        if (failure) {
+          failure(error);
+        }
+      },
+      {
+        enableHighAccuracy: true,
+        forceRequestLocation: true,
+        showLocationDialog: true,
+        distanceFilter: 0.05,
+        useSignificantChanges: true,
+        showsBackgroundLocationIndicator: true,
+        interval: 1000,
+      },
+    );
+  };
+
   requestPermission = (successCallback, failureCallback) => {
     request(
       Platform.select({
         android: PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
         ios: PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
+      }),
+    )
+      .then(result => {
+        if (successCallback) {
+          successCallback(result);
+        }
       })
-        .then(result => {
-          if (successCallback) {
-            successCallback(result);
-          }
-        })
-        .catch(error => {
-          if (failureCallback) {
-            failureCallback(error);
-          }
-        }),
-    );
+      .catch(error => {
+        if (failureCallback) {
+          failureCallback(error);
+        }
+      });
   };
 
   checkLocationPermission = (successCallback, failureCallback) => {
