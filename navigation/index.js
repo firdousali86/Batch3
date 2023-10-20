@@ -19,6 +19,7 @@ import {
   ListApiScreen,
   TestRefScreen,
   TestReduxQuery,
+  LocationScreen,
 } from '../screens';
 
 const Stack = createNativeStackNavigator();
@@ -50,12 +51,18 @@ const Navigator = props => {
   // };
 
   const isUserLoggedIn = () => {
+    return true;
     return user?.data?.id && user?.data?.id?.length > 15;
   };
 
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="locationScreen"
+          component={LocationScreen}
+          options={{title: 'Location Screen'}}
+        />
         <Stack.Screen
           name="listApiScreen"
           component={ListApiScreen}

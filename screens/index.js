@@ -11,6 +11,7 @@ import CartScreen from './CartScreen';
 import ListApiScreen from './ListApiScreen';
 import TestRefScreen from './TestRefScreen';
 import TestReduxQuery from './TestReduxQuery';
+import LocationScreen from './LocationScreen';
 
 export {
   TestFlexScreen,
@@ -26,4 +27,5 @@ export {
   ListApiScreen,
   TestRefScreen,
   TestReduxQuery,
+  LocationScreen,
 };
