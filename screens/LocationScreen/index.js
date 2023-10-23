@@ -1,20 +1,9 @@
 import {useEffect, useState} from 'react';
 import {View, Text, Platform, StyleSheet} from 'react-native';
 import {LocationHelper} from '../../helpers';
-import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
-
-const markers = [
-  {latitude: 0, longitude: 0},
-  {latitude: 0.5, longitude: 0.5},
-  {latitude: 1, longitude: 1},
-  {latitude: 1.5, longitude: 1.5},
-  {latitude: 2, longitude: 2},
-  {latitude: 2.5, longitude: 2.5},
-];
+import {MapControl} from '../../components';
 
 const LocationScreen = () => {
-  const [markersColl, setMarkersColl] = useState(markers);
-
   useEffect(() => {
     LocationHelper.checkLocationPermission(
       () => {
@@ -35,45 +24,7 @@ const LocationScreen = () => {
 
   return (
     <View style={{flex: 1}}>
-      <MapView
-        onLongPress={arg => {
-          const {coordinate} = arg.nativeEvent;
-          setMarkersColl([
-            ...markersColl,
-            {latitude: coordinate.latitude, longitude: coordinate.longitude},
-          ]);
-        }}
-        provider={PROVIDER_GOOGLE}
-        style={{...StyleSheet.absoluteFillObject}}
-        region={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.015,
-          longitudeDelta: 0.0121,
-        }}>
-        {markersColl.map(thisMarker => {
-          return (
-            <Marker
-              draggable
-              coordinate={{
-                latitude: thisMarker.latitude,
-                longitude: thisMarker.longitude,
-              }}>
-              <View
-                style={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 20,
-                  backgroundColor: 'red',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
-                <Text>a</Text>
-              </View>
-            </Marker>
-          );
-        })}
-      </MapView>
+      <MapControl />
     </View>
   );
 };
