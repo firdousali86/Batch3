@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, forwardRef, useImperativeHandle, useRef} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 
@@ -11,11 +11,25 @@ const markers = [
   {latitude: 2.5, longitude: 2.5},
 ];
 
-const MapControl = () => {
+const MapControl = forwardRef((props, ref) => {
+  const mapRef = useRef(null);
   const [markersColl, setMarkersColl] = useState(markers);
+
+  useImperativeHandle(ref, () => ({
+    testmapaccess: () => {
+      console.log('i am able to access the control methods');
+    },
+    aToR: (region, duration) => {
+      mapRef.current.animateToRegion(region, duration);
+    },
+    fToC: (coordinates, options) => {
+      mapRef.current.fitToCoordinates(coordinates, options);
+    },
+  }));
 
   return (
     <MapView
+      ref={mapRef}
       onLongPress={arg => {
         const {coordinate} = arg.nativeEvent;
         setMarkersColl([
@@ -55,6 +69,6 @@ const MapControl = () => {
       })}
     </MapView>
   );
-};
+});
 
 export default MapControl;
