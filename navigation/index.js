@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import {Button} from 'react-native';
-import {PersistanceHelper} from '../helpers';
+import {PersistanceHelper, NotificationHelper} from '../helpers';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useNavigation} from '@react-navigation/native';
 import {EventRegister} from 'react-native-event-listeners';
@@ -34,6 +34,10 @@ const Navigator = props => {
     // let event = EventRegister.addEventListener('LoginEvent', data => {
     //   fetchUserEmail();
     // });
+
+    NotificationHelper.initializeFCM();
+    NotificationHelper.checkFCMPermission();
+    NotificationHelper.getToken();
 
     return () => {
       // EventRegister.removeEventListener(event);
