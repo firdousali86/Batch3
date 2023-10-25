@@ -64,6 +64,11 @@ const Navigator = props => {
     return (
       <Stack.Group>
         <Stack.Screen
+          name="listApiScreen"
+          component={ListApiScreen}
+          options={{title: 'List Api Screen'}}
+        />
+        <Stack.Screen
           name="testImagePicker"
           component={TestImagePicker}
           options={{title: 'Image picker'}}
@@ -73,11 +78,7 @@ const Navigator = props => {
           component={LocationScreen}
           options={{title: 'Location Screen'}}
         />
-        <Stack.Screen
-          name="listApiScreen"
-          component={ListApiScreen}
-          options={{title: 'List Api Screen'}}
-        />
+
         <Stack.Screen
           name="dashboard"
           component={Dashboard}

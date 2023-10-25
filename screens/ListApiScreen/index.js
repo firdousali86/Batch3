@@ -101,6 +101,10 @@ const ListApiScreen = () => {
                     data: {title, image, details, requestType: 'POST'},
                   }),
                 );
+
+                setTitle('');
+                setImage('');
+                setDetails('');
               }}>
               <Text>Submit</Text>
             </TouchableOpacity>
