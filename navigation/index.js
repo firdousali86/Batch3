@@ -64,6 +64,27 @@ const Navigator = props => {
     return (
       <Stack.Group>
         <Stack.Screen
+          name="listScreen"
+          component={ListScreen}
+          options={{
+            title: 'List Screen',
+            headerRight: () => (
+              <Button
+                onPress={() => {
+                  navigation.navigate('cartScreen');
+                }}
+                title="Cart"
+                color="red"
+              />
+            ),
+          }}
+        />
+        <Stack.Screen
+          name="cartScreen"
+          component={CartScreen}
+          options={{title: 'Cart Screen'}}
+        />
+        <Stack.Screen
           name="listApiScreen"
           component={ListApiScreen}
           options={{title: 'List Api Screen'}}
@@ -96,27 +117,6 @@ const Navigator = props => {
           options={{title: 'Test Ref Screen'}}
         />
 
-        <Stack.Screen
-          name="listScreen"
-          component={ListScreen}
-          options={{
-            title: 'List Screen',
-            headerRight: () => (
-              <Button
-                onPress={() => {
-                  navigation.navigate('cartScreen');
-                }}
-                title="Cart"
-                color="red"
-              />
-            ),
-          }}
-        />
-        <Stack.Screen
-          name="cartScreen"
-          component={CartScreen}
-          options={{title: 'Cart Screen'}}
-        />
         <Stack.Screen
           name="testReduxScreen"
           component={TestReduxScreen}
