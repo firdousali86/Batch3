@@ -19,10 +19,15 @@ export const counterSlice = createSlice({
       state.value += action.payload;
     },
   },
-  extraReducers: {
-    ['cart/addToCart']: (state, action) => {
+  // extraReducers: {
+  //   ['cart/addToCart']: (state, action) => {
+  //     state.value += 1;
+  //   },
+  // },
+  extraReducers: builder => {
+    builder.addCase(addToCart, (state, action) => {
       state.value += 1;
-    },
+    });
   },
 });
 
