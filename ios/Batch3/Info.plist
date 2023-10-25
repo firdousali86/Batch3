@@ -30,6 +30,10 @@
   <string>always permissions</string>
   <key>NSLocationAlwaysAndWhenInUsageDescription</key>
   <string>Always and in usage permissions</string>
+  <key>NSPhotoLibraryUsageDescription</key>
+  <string>Needs photo library access to test image picker</string>
+  <key>NSCameraUsageDescription</key>
+  <string>Needs camera access to test image picker</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>

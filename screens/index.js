@@ -12,6 +12,7 @@ import ListApiScreen from './ListApiScreen';
 import TestRefScreen from './TestRefScreen';
 import TestReduxQuery from './TestReduxQuery';
 import LocationScreen from './LocationScreen';
+import TestImagePicker from './TestImagePicker';
 
 export {
   TestFlexScreen,
@@ -28,4 +29,5 @@ export {
   TestRefScreen,
   TestReduxQuery,
   LocationScreen,
+  TestImagePicker,
 };

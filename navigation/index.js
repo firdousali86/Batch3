@@ -20,6 +20,7 @@ import {
   TestRefScreen,
   TestReduxQuery,
   LocationScreen,
+  TestImagePicker,
 } from '../screens';
 
 const Stack = createNativeStackNavigator();
@@ -62,6 +63,11 @@ const Navigator = props => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="testImagePicker"
+          component={TestImagePicker}
+          options={{title: 'Image picker'}}
+        />
         <Stack.Screen
           name="locationScreen"
           component={LocationScreen}
