@@ -21,13 +21,7 @@ const itemsSlice = createSlice({
     //   state.isFetching = true;
     // },
     success: (state, action) => {
-      if (Array.isArray(action.payload)) {
-        state.items = action.payload;
-      } else {
-        state.items = [...state.items, action.payload];
-      }
-
-      // state.items = action.payload;
+      state.items = action.payload;
       state.isFetching = false;
       state.failure = false;
       state.errorMessage = '';
