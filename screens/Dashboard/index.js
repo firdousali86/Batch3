@@ -1,4 +1,4 @@
-import {} from 'react';
+import {useEffect} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {userActions} from '../../features/user/userSlice';
 import {useDispatch} from 'react-redux';
@@ -7,6 +7,12 @@ const {logout} = userActions;
 
 const Dashboard = props => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    return () => {
+      console.log('dashboard is unmounting');
+    };
+  }, []);
 
   return (
     <View>
@@ -23,6 +29,13 @@ const Dashboard = props => {
           props.navigation.navigate('testClassLifecycle');
         }}>
         <Text>Call class component screen</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          props.navigation.navigate('listApiScreen');
+        }}>
+        <Text>list api screen</Text>
       </TouchableOpacity>
     </View>
   );

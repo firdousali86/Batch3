@@ -11,6 +11,10 @@ class TestClassLifecycle extends React.Component {
     };
   }
 
+  componentWillUnmount() {
+    console.log('component is getting unmounted');
+  }
+
   render() {
     return (
       <View>
@@ -24,6 +28,11 @@ class TestClassLifecycle extends React.Component {
         />
 
         <LocalClassComponent writtenText={this.state.textInputValue} />
+        <Text>some text</Text>
+        <LocalClassComponent writtenText={this.state.textInputValue} />
+        <Text>some text</Text>
+        <LocalClassComponent writtenText={this.state.textInputValue} />
+        <Text>some text</Text>
       </View>
     );
   }

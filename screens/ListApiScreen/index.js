@@ -22,6 +22,16 @@ const ListApiScreen = () => {
   useEffect(() => {
     dispatch(request({url: kApiGetItems}));
     // requestApi();
+
+    return () => {
+      console.log('list api screen is getting unmounted 1');
+    };
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      console.log('list api screen is getting unmounted 2');
+    };
   }, []);
 
   // const requestApi = async () => {
