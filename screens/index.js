@@ -13,6 +13,7 @@ import TestRefScreen from './TestRefScreen';
 import TestReduxQuery from './TestReduxQuery';
 import LocationScreen from './LocationScreen';
 import TestImagePicker from './TestImagePicker';
+import TestClassLifecycle from './TestClassLifecycle';
 
 export {
   TestFlexScreen,
@@ -30,4 +31,5 @@ export {
   TestReduxQuery,
   LocationScreen,
   TestImagePicker,
+  TestClassLifecycle,
 };

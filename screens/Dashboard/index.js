@@ -5,7 +5,7 @@ import {useDispatch} from 'react-redux';
 
 const {logout} = userActions;
 
-const Dashboard = () => {
+const Dashboard = props => {
   const dispatch = useDispatch();
 
   return (
@@ -16,6 +16,13 @@ const Dashboard = () => {
           dispatch(logout());
         }}>
         <Text>Logout</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          props.navigation.navigate('testClassLifecycle');
+        }}>
+        <Text>Call class component screen</Text>
       </TouchableOpacity>
     </View>
   );

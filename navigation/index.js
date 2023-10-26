@@ -21,6 +21,7 @@ import {
   TestReduxQuery,
   LocationScreen,
   TestImagePicker,
+  TestClassLifecycle,
 } from '../screens';
 
 const Stack = createNativeStackNavigator();
@@ -64,6 +65,16 @@ const Navigator = props => {
     return (
       <Stack.Group>
         <Stack.Screen
+          name="dashboard"
+          component={Dashboard}
+          options={{title: 'Dashboard'}}
+        />
+        <Stack.Screen
+          name="testClassLifecycle"
+          component={TestClassLifecycle}
+          options={{title: 'test lifecycle'}}
+        />
+        <Stack.Screen
           name="listScreen"
           component={ListScreen}
           options={{
@@ -101,12 +112,6 @@ const Navigator = props => {
         />
 
         <Stack.Screen
-          name="dashboard"
-          component={Dashboard}
-          options={{title: 'Dashboard'}}
-        />
-
-        <Stack.Screen
           name="testReduxQuery"
           component={TestReduxQuery}
           options={{title: 'Test Redux Query Screen'}}
@@ -116,7 +121,6 @@ const Navigator = props => {
           component={TestRefScreen}
           options={{title: 'Test Ref Screen'}}
         />
-
         <Stack.Screen
           name="testReduxScreen"
           component={TestReduxScreen}
@@ -127,7 +131,6 @@ const Navigator = props => {
           component={TestReduxClassScreen}
           options={{title: 'Test Redux class Component'}}
         />
-
         <Stack.Screen
           name="testPropsScreen"
           component={TestPropsScreen}
@@ -143,7 +146,6 @@ const Navigator = props => {
           component={TestStatePropsScreen}
           options={{title: 'Test State and Props'}}
         />
-
         <Stack.Screen
           name="testFlex"
           component={TestFlexScreen}
