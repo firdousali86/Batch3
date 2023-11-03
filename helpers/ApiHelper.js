@@ -3,10 +3,10 @@ import {kApiUrlEndpoint, kApiUrlEndpoint3} from '../config/WebServices';
 
 class ApiHelper {
   async get(url, data, headers = {}) {
-    const completeUrl = kApiUrlEndpoint3 + url;
+    // const completeUrl = kApiUrlEndpoint3 + url;
 
     // const response = await fetch(completeUrl, data).then(x => x.json());
-    const response = await fetch(completeUrl, {
+    const response = await fetch(url, {
       method: 'GET',
       // sslPinning: {certs: ['mycert4']},
       headers: {

@@ -14,15 +14,7 @@ function* watchRequest(action) {
   try {
     let response;
 
-    response = yield call(
-      callGetRequest,
-      payload.url,
-      {},
-      {
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MzJjOTYzNjY5NzU3OGEwNTI5MWM4NWE5MWYyNmFmMSIsInN1YiI6IjY1NDM4MzM0ZTFhZDc5MDE0YmQyMGM3NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.huykm4g9c8OAVMFXGW498rMtzZJT2XYKunRmZvinG70',
-      },
-    );
+    response = yield call(callGetRequest, payload.url, {});
 
     yield put(success(response));
   } catch (ex) {

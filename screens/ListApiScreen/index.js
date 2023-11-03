@@ -57,19 +57,25 @@ const ListApiScreen = () => {
       <Button
         title={'Take'}
         onPress={() => {
-          dispatch(request({url: kApiGetPopularMoviews}));
+          dispatch(
+            request({url: 'https://jsonplaceholder.typicode.com/todos'}),
+          );
         }}
       />
       <Button
         title={'Take Latest'}
         onPress={() => {
-          dispatch(requestLatest({url: kApiGetPopularMoviews}));
+          dispatch(
+            requestLatest({url: 'https://jsonplaceholder.typicode.com/todos'}),
+          );
         }}
       />
       <Button
         title={'Take Every'}
         onPress={() => {
-          dispatch(requestEvery({url: kApiGetPopularMoviews}));
+          dispatch(
+            requestEvery({url: 'https://jsonplaceholder.typicode.com/todos'}),
+          );
         }}
       />
       <FlatList
