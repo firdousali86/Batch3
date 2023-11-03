@@ -18,13 +18,13 @@ class NotificationHelper {
     });
   };
 
-  initializeFCM = () => {
+  initializeFCM = (onRecieve, onTap) => {
     this.messageListener = messaging().onMessage(async remoteMessage => {
-      console.log(remoteMessage);
+      onRecieve(remoteMessage);
     });
 
     messaging().onNotificationOpenedApp(remoteMessage => {
-      console.log(remoteMessage);
+      onTap(remoteMessage);
     });
 
     messaging().setBackgroundMessageHandler(async remoteMessage => {

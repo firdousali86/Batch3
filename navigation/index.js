@@ -37,7 +37,15 @@ const Navigator = props => {
     //   fetchUserEmail();
     // });
 
-    NotificationHelper.initializeFCM();
+    NotificationHelper.initializeFCM(
+      rm => {
+        console.log(rm);
+      },
+      rm => {
+        console.log(rm);
+        navigation.navigate('listScreen');
+      },
+    );
     NotificationHelper.checkFCMPermission();
     NotificationHelper.getToken();
 
@@ -57,7 +65,7 @@ const Navigator = props => {
   // };
 
   const isUserLoggedIn = () => {
-    // return true;
+    return true;
     return user?.data?.id && user?.data?.id?.length > 15;
   };
 
