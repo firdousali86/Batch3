@@ -29,22 +29,27 @@ function* watchRequest() {
 
         const accessToken = yield call(getAccessToken);
 
-        console.log(accessToken);
-
         response = yield call(callPostRequest, payload.url, rest, {
-          'X-Access-Token':
-            'RE0wBIr3U1GQGDbocEnmE4g7OJbld9sfc0erzO82F2eVfcZQW2CPcipCNEGermdr',
+          'X-Access-Token': accessToken,
         });
 
         yield put(addItem(response));
       } else {
         console.log('it came here');
-        response = yield call(callGetRequest, payload.url, {});
+        response = yield call(
+          callGetRequest,
+          payload.url,
+          {},
+          {
+            Authorization:
+              'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MzJjOTYzNjY5NzU3OGEwNTI5MWM4NWE5MWYyNmFmMSIsInN1YiI6IjY1NDM4MzM0ZTFhZDc5MDE0YmQyMGM3NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.huykm4g9c8OAVMFXGW498rMtzZJT2XYKunRmZvinG70',
+          },
+        );
 
         yield put(success(response));
       }
     } catch (err) {
-      yield put(failure(err.message));
+      yield put(failure(err?.message));
 
       // ErrorHelper.handleErrors(err, true);
     }

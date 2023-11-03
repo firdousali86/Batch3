@@ -1,5 +1,5 @@
 import {kApiUrlEndpoint, kApiUrlEndpoint3} from '../config/WebServices';
-import {fetch} from 'react-native-ssl-pinning';
+// import {fetch} from 'react-native-ssl-pinning';
 
 class ApiHelper {
   async get(url, data, headers = {}) {
@@ -8,12 +8,12 @@ class ApiHelper {
     // const response = await fetch(completeUrl, data).then(x => x.json());
     const response = await fetch(completeUrl, {
       method: 'GET',
-      sslPinning: {certs: ['mycert4']},
+      // sslPinning: {certs: ['mycert4']},
       headers: {
         Accept: 'application/json',
         ...headers,
       },
-    });
+    }).then(x => x.json());
 
     return new Promise((resolve, reject) => {
       this.handlePromise(resolve, reject, response);

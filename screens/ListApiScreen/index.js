@@ -1,13 +1,25 @@
 import {useEffect, useState} from 'react';
-import {View, Text, FlatList, TextInput, TouchableOpacity} from 'react-native';
-import {kApiTodos, kApiGetItems, kApiPostItem} from '../../config/WebServices';
+import {
+  View,
+  Text,
+  FlatList,
+  TextInput,
+  TouchableOpacity,
+  Button,
+} from 'react-native';
+import {
+  kApiTodos,
+  kApiGetItems,
+  kApiPostItem,
+  kApiGetPopularMoviews,
+} from '../../config/WebServices';
 import {ApiHelper} from '../../helpers';
 import {useDispatch, useSelector} from 'react-redux';
 import {itemsActions} from '../../features/items/itemsSlice';
 import {PersistanceHelper} from '../../helpers';
 import {userActions} from '../../features/user/userSlice';
 
-const {request} = itemsActions;
+const {request, requestEvery, requestLatest} = itemsActions;
 
 const ListApiScreen = () => {
   const [title, setTitle] = useState('');
@@ -42,6 +54,24 @@ const ListApiScreen = () => {
 
   return (
     <View>
+      <Button
+        title={'Take'}
+        onPress={() => {
+          dispatch(request({url: kApiGetPopularMoviews}));
+        }}
+      />
+      <Button
+        title={'Take Latest'}
+        onPress={() => {
+          dispatch(requestLatest({url: kApiGetPopularMoviews}));
+        }}
+      />
+      <Button
+        title={'Take Every'}
+        onPress={() => {
+          dispatch(requestEvery({url: kApiGetPopularMoviews}));
+        }}
+      />
       <FlatList
         data={items.items}
         renderItem={({item, index}) => {
@@ -112,9 +142,9 @@ const ListApiScreen = () => {
                   }),
                 );
 
-                setTitle('');
-                setImage('');
-                setDetails('');
+                // setTitle('');
+                // setImage('');
+                // setDetails('');
               }}>
               <Text>Submit</Text>
             </TouchableOpacity>

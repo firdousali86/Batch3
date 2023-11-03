@@ -57,13 +57,18 @@ const Navigator = props => {
   // };
 
   const isUserLoggedIn = () => {
-    return true;
+    // return true;
     return user?.data?.id && user?.data?.id?.length > 15;
   };
 
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="listApiScreen"
+          component={ListApiScreen}
+          options={{title: 'List Api Screen'}}
+        />
         <Stack.Screen
           name="dashboard"
           component={Dashboard}
@@ -95,11 +100,7 @@ const Navigator = props => {
           component={CartScreen}
           options={{title: 'Cart Screen'}}
         />
-        <Stack.Screen
-          name="listApiScreen"
-          component={ListApiScreen}
-          options={{title: 'List Api Screen'}}
-        />
+
         <Stack.Screen
           name="testImagePicker"
           component={TestImagePicker}

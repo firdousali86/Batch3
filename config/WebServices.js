@@ -5,3 +5,6 @@ export const kApiTodos = '/todos';
 export const kApiLogin = '/Users/login';
 export const kApiGetItems = '/items';
 export const kApiPostItem = '/items';
+
+export const kApiGetPopularMoviews =
+  '/3/movie/popular?language=en-US&page=1&limit=50';
