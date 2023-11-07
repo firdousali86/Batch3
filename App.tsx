@@ -11,6 +11,7 @@ import Navigator from './navigation';
 import {PersistanceHelper} from './helpers';
 import {store} from './store';
 import {Provider} from 'react-redux';
+import {AppStateN} from './components';
 
 function App() {
   useEffect(() => {
@@ -22,6 +23,11 @@ function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Navigator />
+        <AppStateN
+          handleAppState={nextState => {
+            console.log(nextState);
+          }}
+        />
       </NavigationContainer>
     </Provider>
   );
