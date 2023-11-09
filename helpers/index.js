@@ -3,6 +3,7 @@ import ApiHelper from './ApiHelper';
 import LocationHelper from './LocationHelper';
 import NotificationHelper from './NotificationHelper';
 import CryptoHelper from './CryptoHelper';
+import LocaleHelper from './LocaleHelper';
 
 export {
   PersistanceHelper,
@@ -10,4 +11,5 @@ export {
   LocationHelper,
   NotificationHelper,
   CryptoHelper,
+  LocaleHelper,
 };

@@ -1,8 +1,8 @@
 import {useEffect} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, Button} from 'react-native';
 import {userActions} from '../../features/user/userSlice';
 import {useDispatch} from 'react-redux';
-import {ApiHelper} from '../../helpers';
+import {ApiHelper, LocaleHelper} from '../../helpers';
 
 const {logout} = userActions;
 
@@ -39,6 +39,8 @@ const Dashboard = props => {
         }}>
         <Text>Logout</Text>
       </TouchableOpacity>
+
+      <Text>{LocaleHelper.t('howru')}</Text>
 
       <TouchableOpacity
         onPress={() => {

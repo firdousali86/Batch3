@@ -16,7 +16,7 @@ import {
 import {ApiHelper} from '../../helpers';
 import {useDispatch, useSelector} from 'react-redux';
 import {itemsActions} from '../../features/items/itemsSlice';
-import {PersistanceHelper} from '../../helpers';
+import {PersistanceHelper, LocaleHelper} from '../../helpers';
 import {userActions} from '../../features/user/userSlice';
 
 const {request, requestEvery, requestLatest} = itemsActions;
@@ -54,6 +54,25 @@ const ListApiScreen = () => {
 
   return (
     <View>
+      <Button
+        title={'ur'}
+        onPress={() => {
+          LocaleHelper.locale = 'ur';
+        }}
+      />
+      <Button
+        title={'en'}
+        onPress={() => {
+          LocaleHelper.locale = 'en';
+        }}
+      />
+      <Button
+        title={'fr'}
+        onPress={() => {
+          LocaleHelper.locale = 'fr';
+        }}
+      />
+
       <Button
         title={'Take'}
         onPress={() => {

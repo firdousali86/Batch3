@@ -73,15 +73,16 @@ const Navigator = props => {
     return (
       <Stack.Group>
         <Stack.Screen
-          name="listApiScreen"
-          component={ListApiScreen}
-          options={{title: 'List Api Screen'}}
-        />
-        <Stack.Screen
           name="dashboard"
           component={Dashboard}
           options={{title: 'Dashboard'}}
         />
+        <Stack.Screen
+          name="listApiScreen"
+          component={ListApiScreen}
+          options={{title: 'List Api Screen'}}
+        />
+
         <Stack.Screen
           name="testClassLifecycle"
           component={TestClassLifecycle}
