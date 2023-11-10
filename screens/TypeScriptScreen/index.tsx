@@ -73,20 +73,29 @@ export default function TypeScriptScreen() {
       xyz: [],
     },
     {fullName: ' fghfg fh ', email: 'dfgdf@gffg.gg', name: 'hgfh rt r'},
-    {name: 'sdfds sdfsd', age: 55},
-    {fullName: ' sdf sdfds '},
     {
       name: 'dfdf dgd ffg',
       xyz: 'f gdfg d',
       fullName: 'DSSDF',
       email: 'sdsdf',
-      abc: 4554,
     },
   ];
+
+  const concatenate = (x: string, y: string): string => {
+    return x + y;
+  };
+
+  const add = (x: number, y: number): number => {
+    return x + y;
+  };
 
   return (
     <View>
       <Text>index</Text>
+      <Text>{concatenate('5', '6')}</Text>
+      <Text>{add(5, 6)}</Text>
+      <Text>{concatenate('5', '6')}</Text>
+      <Text>{add(5, 6)}</Text>
     </View>
   );
 }
