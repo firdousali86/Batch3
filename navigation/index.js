@@ -22,6 +22,7 @@ import {
   LocationScreen,
   TestImagePicker,
   TestClassLifecycle,
+  TypeScriptScreen,
 } from '../screens';
 
 const Stack = createNativeStackNavigator();
@@ -72,6 +73,11 @@ const Navigator = props => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="typeScriptScreen"
+          component={TypeScriptScreen}
+          options={{title: 'TypeScript'}}
+        />
         <Stack.Screen
           name="dashboard"
           component={Dashboard}
