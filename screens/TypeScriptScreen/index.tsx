@@ -16,7 +16,15 @@ export default function TypeScriptScreen() {
   dailyTemperatures = [33, 34, 35, 46.3];
   arryofbool = [true, false, true];
 
-  let person: {name: string; age: number; courses: string[]; phone: string};
+  type Person = {
+    name: string;
+    age: number;
+    courses: string[];
+    phone?: string | number;
+  };
+
+  // let person: {name: string; age: number; courses: string[]; phone: string};
+  let person: Person;
 
   person = {
     name: 'firdous ali',
@@ -25,12 +33,13 @@ export default function TypeScriptScreen() {
     phone: '23234234',
   };
 
-  let people: {
-    name: string;
-    age: number;
-    courses: string[];
-    phone?: string | number; //union
-  }[];
+  // let people: {
+  //   name: string;
+  //   age: number;
+  //   courses: string[];
+  //   phone?: string | number; //union
+  // }[];
+  let people: Person[];
 
   people = [
     {
