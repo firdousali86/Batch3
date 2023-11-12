@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button} from 'react-native';
 import {PersistanceHelper, NotificationHelper} from '../helpers';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -22,6 +22,7 @@ import {
   LocationScreen,
   TestImagePicker,
   TestClassLifecycle,
+  ReactTestScreen,
 } from '../screens';
 
 const Stack = createNativeStackNavigator();
@@ -73,14 +74,24 @@ const Navigator = props => {
     return (
       <Stack.Group>
         <Stack.Screen
-          name="listApiScreen"
-          component={ListApiScreen}
-          options={{title: 'List Api Screen'}}
+          name="reactTestScreen"
+          component={ReactTestScreen}
+          options={{title: 'React test'}}
         />
         <Stack.Screen
           name="dashboard"
           component={Dashboard}
           options={{title: 'Dashboard'}}
+        />
+        <Stack.Screen
+          name="testReduxScreen"
+          component={TestReduxScreen}
+          options={{title: 'Test Reduc func Component'}}
+        />
+        <Stack.Screen
+          name="listApiScreen"
+          component={ListApiScreen}
+          options={{title: 'List Api Screen'}}
         />
         <Stack.Screen
           name="testClassLifecycle"
@@ -130,11 +141,7 @@ const Navigator = props => {
           component={TestRefScreen}
           options={{title: 'Test Ref Screen'}}
         />
-        <Stack.Screen
-          name="testReduxScreen"
-          component={TestReduxScreen}
-          options={{title: 'Test Reduc func Component'}}
-        />
+
         <Stack.Screen
           name="testReduxClassScreen"
           component={TestReduxClassScreen}
