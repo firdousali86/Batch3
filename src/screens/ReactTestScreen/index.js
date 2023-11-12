@@ -14,6 +14,14 @@ export default function ReactTestScreen() {
           setsometext('something');
         }}
       />
+
+      <Button
+        testID="button2"
+        title="Press"
+        onPress={() => {
+          setsometext('test screen');
+        }}
+      />
     </View>
   );
 }
