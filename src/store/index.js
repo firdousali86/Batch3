@@ -6,10 +6,10 @@ import persistReducer from 'redux-persist/es/persistReducer';
 import storage from 'redux-persist/lib/storage';
 import persistStore from 'redux-persist/lib/persistStore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import reducers from './features/reducers';
-import sagas from './sagas';
+import reducers from '../features/reducers';
+import sagas from '../sagas';
 import createSagaMiddleware from 'redux-saga';
-import {todosApi} from './config/todosApi';
+import {todosApi} from '../config/todosApi';
 
 const isDebuggingInChrome = __DEV__ && !!window.navigator.userAgent;
 

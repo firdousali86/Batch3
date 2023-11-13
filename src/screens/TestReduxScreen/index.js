@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, TextInput, FlatList} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {
@@ -19,9 +19,10 @@ const TestReduxScreen = () => {
     <View>
       <Text>test redux</Text>
 
-      <Text>{count}</Text>
+      <Text testID="text_counter">0</Text>
 
       <TouchableOpacity
+        testID="button_increment"
         onPress={() => {
           dispatch(increment());
         }}>
@@ -29,6 +30,7 @@ const TestReduxScreen = () => {
       </TouchableOpacity>
 
       <TouchableOpacity
+        testID="button_decrement"
         onPress={() => {
           dispatch(decrement());
         }}>
@@ -36,6 +38,7 @@ const TestReduxScreen = () => {
       </TouchableOpacity>
 
       <TextInput
+        testID="input_amount"
         value={inputval}
         onChangeText={changedText => {
           setinputval(changedText);
@@ -45,6 +48,7 @@ const TestReduxScreen = () => {
       />
 
       <TouchableOpacity
+        testID="button_incrementByAmount"
         onPress={() => {
           dispatch(incrementByAmount(parseInt(inputval)));
         }}>
@@ -81,3 +85,40 @@ const TestReduxScreen = () => {
 };
 
 export default TestReduxScreen;
+
+// import {Formik} from 'formik';
+
+// describe('search', () => {
+//   it('should render the component fields', () => {
+//     const {getByTestId} = render(
+//       <Formik>
+//         <CreateAxeForm
+//           setOpen={() => {
+//             true;
+//           }}
+//           isMutationInFlight={false}
+//           formRef={formRef} // Pass the ref
+//           validateForm={() => Promise.resolve({})}
+//         />
+//       </Formik>,
+//     );
+
+//     const mylabeldiv = getByTestId('legheader');
+
+//     expect(mylabeldiv.textContent).toBe('Leg 1');
+//   });
+// });
+
+// describe('table test', () => {
+//   it('should render the component fields', () => {
+//     const {getByText} = render(
+//       <Formik>
+//         <Table rows={[]} header="Leg 1" hasButton={true} />
+//       </Formik>,
+//     );
+
+//     const mylabeldiv = getByText('Leg 1');
+
+//     expect(mylabeldiv.textContent).toBe('Leg 1');
+//   });
+// });
