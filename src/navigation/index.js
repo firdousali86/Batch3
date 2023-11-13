@@ -74,15 +74,16 @@ const Navigator = props => {
     return (
       <Stack.Group>
         <Stack.Screen
-          name="typeScriptScreen"
-          component={TypeScriptScreen}
-          options={{title: 'TypeScript'}}
-        />
-        <Stack.Screen
           name="dashboard"
           component={Dashboard}
           options={{title: 'Dashboard'}}
         />
+        <Stack.Screen
+          name="typeScriptScreen"
+          component={TypeScriptScreen}
+          options={{title: 'TypeScript'}}
+        />
+
         <Stack.Screen
           name="listApiScreen"
           component={ListApiScreen}

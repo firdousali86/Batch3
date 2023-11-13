@@ -1,10 +1,21 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, Suspense} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 // import {userActions} from '../../features/user/userSlice';
 import {useDispatch} from 'react-redux';
 // import {ApiHelper} from '../../helpers';
+// import {ReactTestComponent} from '../../components';
 
 // const {logout} = userActions;
+
+const MyHeavyComponent = React.lazy(() => {
+  return new Promise(resolve => setTimeout(resolve, 5 * 1000)).then(() =>
+    import('../../components/ReactTestComponent'),
+  );
+});
+
+// const MyHeavyComponent = React.lazy(() =>
+//   import('../../components/ReactTestComponent'),
+// );
 
 const Dashboard = props => {
   const [sometext, setsometext] = useState('dashboard');
@@ -32,6 +43,10 @@ const Dashboard = props => {
 
   return (
     <View>
+      <Suspense fallback={<Text>Loading...</Text>}>
+        <MyHeavyComponent />
+      </Suspense>
+
       <Text testID="text_db">{sometext}</Text>
       <TouchableOpacity
         onPress={() => {
