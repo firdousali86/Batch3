@@ -1,10 +1,11 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import {PersistanceHelper} from '../../helpers';
 import {EventRegister} from 'react-native-event-listeners';
 import {userActions} from '../../features/user/userSlice';
 import {useDispatch, useSelector} from 'react-redux';
 import {kApiLogin} from '../../config/WebServices';
+import {LoginButton, AccessToken} from 'react-native-fbsdk-next';
 
 const {request} = userActions;
 
@@ -56,6 +57,20 @@ const Login = () => {
         }}>
         <Text>LOGIN</Text>
       </TouchableOpacity>
+      <LoginButton
+        onLoginFinished={(error, result) => {
+          if (error) {
+            console.log('login has error: ' + result.error);
+          } else if (result.isCancelled) {
+            console.log('login is cancelled.');
+          } else {
+            AccessToken.getCurrentAccessToken().then(data => {
+              console.log(data.accessToken.toString());
+            });
+          }
+        }}
+        onLogoutFinished={() => console.log('logout.')}
+      />
     </View>
   );
 };
