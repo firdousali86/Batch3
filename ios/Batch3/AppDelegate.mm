@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import <Firebase.h>
+// #import <Firebase.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import <AuthenticationServices/AuthenticationServices.h>
 #import <SafariServices/SafariServices.h>
@@ -11,7 +11,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [FIRApp configure];
+  // [FIRApp configure];
   [GMSServices provideAPIKey:@"AIzaSyB4uOPrlEUJjx-tCcPm7BY5fn1gLwtB4BA"];
   
    [[FBSDKApplicationDelegate sharedInstance] application:application
