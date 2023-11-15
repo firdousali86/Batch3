@@ -6,6 +6,7 @@ import {userActions} from '../../features/user/userSlice';
 import {useDispatch, useSelector} from 'react-redux';
 import {kApiLogin} from '../../config/WebServices';
 import {LoginButton, AccessToken} from 'react-native-fbsdk-next';
+import Config from 'react-native-config';
 
 const {request} = userActions;
 
@@ -18,7 +19,8 @@ const Login = () => {
   return (
     <View style={{flex: 1}}>
       <Text>Login</Text>
-
+      <Text>{Config.ENV}</Text>
+      <Text>{Config.API_URL}</Text>
       <TextInput
         value={email}
         onChangeText={changedText => {

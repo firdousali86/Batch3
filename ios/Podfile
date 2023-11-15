@@ -53,7 +53,18 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'Batch3' do
+#target 'Batch3' do
+abstract_target 'Batch3CommonPods' do
+  
+  target 'Batch3Dev' do
+   end
+
+   target 'Batch3Stg' do
+   end
+
+   target 'Batch3' do
+   end
+  
   config = use_native_modules!
   use_frameworks! :linkage => :static
   # $RNFirebaseAsStaticFramework = true
