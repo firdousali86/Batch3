@@ -4,6 +4,7 @@ import CustomComponent from './CustomComponent';
 import MapControl from './MapControl';
 import AppStateN from './AppStateN';
 import ReactTestComponent from './ReactTestComponent';
+import InputControl from './InputControl';
 
 export {
   MyUserList,
@@ -12,4 +13,5 @@ export {
   MapControl,
   AppStateN,
   ReactTestComponent,
+  InputControl,
 };
