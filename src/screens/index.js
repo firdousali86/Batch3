@@ -15,6 +15,7 @@ import LocationScreen from './LocationScreen';
 import TestImagePicker from './TestImagePicker';
 import TestClassLifecycle from './TestClassLifecycle';
 import TypeScriptScreen from './TypeScriptScreen';
+import UserProfileEdit from './UserProfileEdit';
 
 export {
   TestFlexScreen,
@@ -34,4 +35,5 @@ export {
   TestImagePicker,
   TestClassLifecycle,
   TypeScriptScreen,
+  UserProfileEdit,
 };

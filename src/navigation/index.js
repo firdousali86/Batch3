@@ -23,6 +23,7 @@ import {
   TestImagePicker,
   TestClassLifecycle,
   TypeScriptScreen,
+  UserProfileEdit,
 } from '../screens';
 
 const Stack = createNativeStackNavigator();
@@ -66,13 +67,18 @@ const Navigator = props => {
   // };
 
   const isUserLoggedIn = () => {
-    // return true;
+    return true;
     return user?.data?.id && user?.data?.id?.length > 15;
   };
 
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="userProfileEdit"
+          component={UserProfileEdit}
+          options={{title: 'User Profile Edit'}}
+        />
         <Stack.Screen
           name="dashboard"
           component={Dashboard}
