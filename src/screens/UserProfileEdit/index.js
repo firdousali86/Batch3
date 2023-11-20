@@ -4,6 +4,7 @@ import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {InputControl} from '../../components';
 import * as yup from 'yup';
+import {LogHelper} from '../../helpers';
 
 const schema = yup.object().shape({
   firstName: yup
@@ -60,6 +61,12 @@ export default function UserProfileEdit() {
         title={'Submit'}
         onPress={handleSubmit(formData => {
           console.log(formData);
+
+          LogHelper.localServerLogging(
+            'form submit',
+            'form submit is clicked',
+            formData,
+          );
         })}
       />
     </View>
