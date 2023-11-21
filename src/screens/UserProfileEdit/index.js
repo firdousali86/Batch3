@@ -1,6 +1,6 @@
 import {View, Text, Button} from 'react-native';
 import React from 'react';
-import {useForm} from 'react-hook-form';
+import {useForm, Controller} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {InputControl, GenderSelector} from '../../components';
 import * as yup from 'yup';
@@ -57,7 +57,14 @@ export default function UserProfileEdit() {
         placeholder={'Enter email'}
         error={errors?.email}
       />
-      <GenderSelector />
+      <Controller
+        name={'gender'}
+        control={control}
+        rules={{required: true, validate: true}}
+        render={({field: {onChange, value}}) => {
+          return <GenderSelector value={value} onGenderSelected={onChange} />;
+        }}
+      />
 
       <Button
         title={'Submit'}

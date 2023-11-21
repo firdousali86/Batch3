@@ -1,12 +1,16 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const genders = [
   {key: 'male', title: 'Male'},
   {key: 'female', title: 'Female'},
 ];
-export default function GenderSelector() {
-  const [selectedCell, setSelectedCell] = useState('male');
+export default function GenderSelector(props) {
+  const [selectedCell, setSelectedCell] = useState(props?.value);
+
+  useEffect(() => {
+    setSelectedCell(props?.value);
+  }, [props?.value]);
 
   let selectedCellStyle;
   selectedCellStyle = {...styles.cell, ...styles.selectedCell};
@@ -21,6 +25,10 @@ export default function GenderSelector() {
             }
             onPress={() => {
               setSelectedCell(thisEl.key);
+
+              if (props.onGenderSelected) {
+                props.onGenderSelected(thisEl.key);
+              }
             }}>
             <Text>{thisEl.title}</Text>
           </TouchableOpacity>
