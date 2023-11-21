@@ -67,7 +67,7 @@ const Navigator = props => {
   // };
 
   const isUserLoggedIn = () => {
-    return true;
+    // return true;
     return user?.data?.id && user?.data?.id?.length > 15;
   };
 
