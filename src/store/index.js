@@ -10,6 +10,7 @@ import reducers from '../features/reducers';
 import sagas from '../sagas';
 import createSagaMiddleware from 'redux-saga';
 import {todosApi} from '../config/todosApi';
+import {itemApi} from '../config/itemApi';
 
 const isDebuggingInChrome = __DEV__ && !!window.navigator.userAgent;
 
@@ -31,7 +32,12 @@ const sagaMiddleware = createSagaMiddleware();
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(logger, sagaMiddleware, todosApi.middleware),
+    getDefaultMiddleware().concat(
+      logger,
+      sagaMiddleware,
+      todosApi.middleware,
+      itemApi.middleware,
+    ),
 });
 
 sagaMiddleware.run(sagas);

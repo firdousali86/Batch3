@@ -4,6 +4,7 @@ import counterSlice from './counter/counterSlice';
 import {todosApi} from '../config/todosApi';
 import itemsSlice from './items/itemsSlice';
 import userSlice from './user/userSlice';
+import {itemApi} from '../config/itemApi';
 
 export default {
   counter: counterSlice,
@@ -12,4 +13,5 @@ export default {
   todos: todosApi.reducer,
   item: itemsSlice,
   user: userSlice,
+  itemRTK: itemApi.reducer,
 };

@@ -75,6 +75,11 @@ const Navigator = props => {
     return (
       <Stack.Group>
         <Stack.Screen
+          name="testReduxQuery"
+          component={TestReduxQuery}
+          options={{title: 'Test Redux Query Screen'}}
+        />
+        <Stack.Screen
           name="userProfileEdit"
           component={UserProfileEdit}
           options={{title: 'User Profile Edit'}}
@@ -133,11 +138,6 @@ const Navigator = props => {
           options={{title: 'Location Screen'}}
         />
 
-        <Stack.Screen
-          name="testReduxQuery"
-          component={TestReduxQuery}
-          options={{title: 'Test Redux Query Screen'}}
-        />
         <Stack.Screen
           name="testRefScreen"
           component={TestRefScreen}
