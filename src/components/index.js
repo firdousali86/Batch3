@@ -5,6 +5,7 @@ import MapControl from './MapControl';
 import AppStateN from './AppStateN';
 import ReactTestComponent from './ReactTestComponent';
 import InputControl from './InputControl';
+import GenderSelector from './GenderSelector';
 
 export {
   MyUserList,
@@ -14,4 +15,5 @@ export {
   AppStateN,
   ReactTestComponent,
   InputControl,
+  GenderSelector,
 };

@@ -2,7 +2,7 @@ import {View, Text, Button} from 'react-native';
 import React from 'react';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
-import {InputControl} from '../../components';
+import {InputControl, GenderSelector} from '../../components';
 import * as yup from 'yup';
 import {LogHelper} from '../../helpers';
 
@@ -57,6 +57,8 @@ export default function UserProfileEdit() {
         placeholder={'Enter email'}
         error={errors?.email}
       />
+      <GenderSelector />
+
       <Button
         title={'Submit'}
         onPress={handleSubmit(formData => {
