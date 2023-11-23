@@ -15,6 +15,7 @@ import LocationScreen from './LocationScreen';
 import TestImagePicker from './TestImagePicker';
 import TestClassLifecycle from './TestClassLifecycle';
 import ReactTestScreen from './ReactTestScreen';
+import ReactTestScreen2 from './ReactTestScreen2';
 
 export {
   TestFlexScreen,
@@ -34,4 +35,5 @@ export {
   TestImagePicker,
   TestClassLifecycle,
   ReactTestScreen,
+  ReactTestScreen2,
 };

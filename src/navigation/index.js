@@ -23,6 +23,7 @@ import {
   TestImagePicker,
   TestClassLifecycle,
   ReactTestScreen,
+  ReactTestScreen2,
 } from '../screens';
 
 const Stack = createNativeStackNavigator();
@@ -77,6 +78,11 @@ const Navigator = props => {
           name="reactTestScreen"
           component={ReactTestScreen}
           options={{title: 'React test'}}
+        />
+        <Stack.Screen
+          name="reactTestScreen2"
+          component={ReactTestScreen2}
+          options={{title: 'React Test Screen 2'}}
         />
         <Stack.Screen
           name="dashboard"
