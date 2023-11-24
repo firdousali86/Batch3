@@ -24,6 +24,7 @@ import {
   TestClassLifecycle,
   TypeScriptScreen,
   UserProfileEdit,
+  PubNubScreen,
 } from '../screens';
 
 const Stack = createNativeStackNavigator();
@@ -67,13 +68,18 @@ const Navigator = props => {
   // };
 
   const isUserLoggedIn = () => {
-    // return true;
+    return true;
     return user?.data?.id && user?.data?.id?.length > 15;
   };
 
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="pubNubScreen"
+          component={PubNubScreen}
+          options={{title: 'PubNub Screen'}}
+        />
         <Stack.Screen
           name="testReduxQuery"
           component={TestReduxQuery}
