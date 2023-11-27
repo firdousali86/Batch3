@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -32,7 +32,7 @@ const ListApiScreen = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    dispatch(request({url: kApiGetItems}));
+    dispatch(request({url: kApiGetPopularMoviews}));
     // requestApi();
 
     return () => {

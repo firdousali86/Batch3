@@ -6,5 +6,7 @@ export const kApiLogin = '/Users/login';
 export const kApiGetItems = '/items';
 export const kApiPostItem = '/items';
 
+export const API_TIMEOUT = 60000;
+
 export const kApiGetPopularMoviews =
   '/3/movie/popular?language=en-US&page=1&limit=50';
