@@ -1,4 +1,4 @@
-import {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {View, Text, Platform, StyleSheet, Button} from 'react-native';
 import {LocationHelper} from '../../helpers';
 import {MapControl} from '../../components';
@@ -9,7 +9,7 @@ const LocationScreen = () => {
   useEffect(() => {
     LocationHelper.checkLocationPermission(
       () => {
-        LocationHelper.trackUserLocation(
+        LocationHelper.fetchLocation(
           locationObject => {
             console.log(locationObject);
           },
