@@ -59,7 +59,7 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>always permissions</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>test string</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Needs photo library access to test image picker</string>
 	<key>UILaunchStoryboardName</key>
