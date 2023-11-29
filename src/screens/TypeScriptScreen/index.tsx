@@ -42,6 +42,26 @@ export default function TypeScriptScreen() {
     phone: '23234234',
   };
 
+  type Transport = 'Bus' | 'Car' | 'Bike' | 'Walk';
+
+  type Car = 'ICE' | 'EV';
+  type ChargeEV = (kws: number) => void;
+  type FillPetrol = (type: string, liters: number) => void;
+  type RefillHandler<A extends Car> = A extends 'ICE'
+    ? FillPetrol
+    : A extends 'EV'
+    ? ChargeEV
+    : never;
+
+  const chargeTesla: RefillHandler<'EV'> = power => {
+    // Implementation for charging electric cars (EV)
+  };
+  const refillToyota: RefillHandler<'ICE'> = (fuelType, amount) => {
+    // Implementation for refilling internal combustion engine cars (ICE)
+  };
+
+  // const transport: Transport = 'Plane';
+
   // let people: {
   //   name: string;
   //   age: number;
