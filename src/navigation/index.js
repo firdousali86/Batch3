@@ -26,6 +26,7 @@ import {
   UserProfileEdit,
   PubNubScreen,
 } from '../screens';
+import {addSslPinningErrorListener} from 'react-native-ssl-public-key-pinning';
 
 const Stack = createNativeStackNavigator();
 
@@ -57,6 +58,16 @@ const Navigator = props => {
     };
   }, []);
 
+  useEffect(() => {
+    const subscription = addSslPinningErrorListener(error => {
+      // Triggered when an SSL pinning error occurs due to pin mismatch
+      console.log(error.serverHostname);
+    });
+    return () => {
+      subscription.remove();
+    };
+  }, []);
+
   // const fetchUserEmail = async () => {
   //   const userEmail = await PersistanceHelper.getValue('userEmail');
 
@@ -75,6 +86,11 @@ const Navigator = props => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen
+          name="listApiScreen"
+          component={ListApiScreen}
+          options={{title: 'List Api Screen'}}
+        />
         <Stack.Screen
           name="pubNubScreen"
           component={PubNubScreen}
@@ -101,11 +117,6 @@ const Navigator = props => {
           options={{title: 'TypeScript'}}
         />
 
-        <Stack.Screen
-          name="listApiScreen"
-          component={ListApiScreen}
-          options={{title: 'List Api Screen'}}
-        />
         <Stack.Screen
           name="testClassLifecycle"
           component={TestClassLifecycle}

@@ -11,7 +11,7 @@ import {
   kApiTodos,
   kApiGetItems,
   kApiPostItem,
-  kApiGetPopularMoviews,
+  kApiGetPopularMovies,
 } from '../../config/WebServices';
 import {ApiHelper} from '../../helpers';
 import {useDispatch, useSelector} from 'react-redux';
@@ -20,6 +20,7 @@ import {PersistanceHelper, LocaleHelper} from '../../helpers';
 import {userActions} from '../../features/user/userSlice';
 
 const {request, requestEvery, requestLatest} = itemsActions;
+const {request: userRequest} = userActions;
 
 const ListApiScreen = () => {
   const [title, setTitle] = useState('');
@@ -32,7 +33,7 @@ const ListApiScreen = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    dispatch(request({url: kApiGetPopularMoviews}));
+    dispatch(request({url: kApiGetPopularMovies}));
     // requestApi();
 
     return () => {

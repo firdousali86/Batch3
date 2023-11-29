@@ -351,6 +351,10 @@ PODS:
     - React-Core
   - react-native-safe-area-context (4.7.4):
     - React-Core
+  - react-native-ssl-public-key-pinning (1.1.3):
+    - React-Core
+    - React-RCTNetwork
+    - TrustKit
   - React-NativeModulesApple (0.72.5):
     - React-callinvoker
     - React-Core
@@ -456,19 +460,19 @@ PODS:
     - React-jsi (= 0.72.5)
     - React-logger (= 0.72.5)
     - React-perflogger (= 0.72.5)
-  - RNCAsyncStorage (1.19.5):
+  - RNCAsyncStorage (1.19.8):
     - React-Core
   - RNDeviceInfo (10.11.0):
     - React-Core
-  - RNGestureHandler (2.13.4):
+  - RNGestureHandler (2.14.0):
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
-  - RNImageCropPicker (0.40.1):
+  - RNImageCropPicker (0.40.2):
     - React-Core
     - React-RCTImage
-    - RNImageCropPicker/QBImagePickerController (= 0.40.1)
+    - RNImageCropPicker/QBImagePickerController (= 0.40.2)
     - TOCropViewController
-  - RNImageCropPicker/QBImagePickerController (0.40.1):
+  - RNImageCropPicker/QBImagePickerController (0.40.2):
     - React-Core
     - React-RCTImage
     - TOCropViewController
@@ -506,6 +510,7 @@ PODS:
     - React-Core
   - SocketRocket (0.6.1)
   - TOCropViewController (2.6.1)
+  - TrustKit (3.0.3)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -537,6 +542,7 @@ DEPENDENCIES:
   - react-native-maps (from `../node_modules/react-native-maps`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - react-native-ssl-public-key-pinning (from `../node_modules/react-native-ssl-public-key-pinning`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -576,6 +582,7 @@ SPEC REPOS:
     - GoogleMaps
     - SocketRocket
     - TOCropViewController
+    - TrustKit
 
 EXTERNAL SOURCES:
   boost:
@@ -632,6 +639,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/netinfo"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-ssl-public-key-pinning:
+    :path: "../node_modules/react-native-ssl-public-key-pinning"
   React-NativeModulesApple:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios"
   React-perflogger:
@@ -720,6 +729,7 @@ SPEC CHECKSUMS:
   react-native-maps: f699e0753c22c4d5c3a44d03895b193a4dbca6c2
   react-native-netinfo: 3aa5637c18834966e0c932de8ae1ae56fea20a97
   react-native-safe-area-context: 2cd91d532de12acdb0a9cbc8d43ac72a8e4c897c
+  react-native-ssl-public-key-pinning: 7b5272efa81144da691d0a27bcd853e2df3d8cef
   React-NativeModulesApple: 535e26db03f74ecc500748ce79fa349b2ee2ee21
   React-perflogger: cd8886513f68e1c135a1e79d20575c6489641597
   React-RCTActionSheet: 726d2615ca62a77ce3e2c13d87f65379cdc73498
@@ -737,15 +747,16 @@ SPEC CHECKSUMS:
   React-runtimescheduler: cf556acfc14dd4322d3337c70dd44c2742850ca5
   React-utils: 40cdd9acee23230df5b78bf78a64ce8a2084c2d0
   ReactCommon: c16d3a77f8fc5d3e0df30c2ac4eac82fbc9aeb8c
-  RNCAsyncStorage: f2974eca860c16a3e56eea5771fda8d12e2d2057
+  RNCAsyncStorage: 687bb9e85dd3d45b966662440dcfc0cd962347e6
   RNDeviceInfo: bf8a32acbcb875f568217285d1793b0e8588c974
-  RNGestureHandler: 6594263b1a123e43c23ff72c8d99080187e74bf9
-  RNImageCropPicker: 521d8ef2dcf0549f141dbf82d086c75e3a9fbe65
+  RNGestureHandler: a5039da2ac028b073ae801289476060b34d559b1
+  RNImageCropPicker: d9616a0cb9b72e8551ff94a7a5021fbd29050aa5
   RNPermissions: da377dff33a9bd6fa2ad0c1bc1128e503a0588aa
   RNReanimated: bdadbf5322d7894bb6016985d8ae5c9ed5fc83d0
   RNScreens: 3e56c56bd35436215a56f48a753e30e8ce018a09
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
+  TrustKit: 7858ea59d0e226b1457b2e9cc8b95d77ab21d471
   Yoga: 86fed2e4d425ee4c6eab3813ba1791101ee153c6
 
 PODFILE CHECKSUM: 07f484a3056d92f501f88260313b81b080a098ad

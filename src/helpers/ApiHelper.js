@@ -3,9 +3,23 @@ import {
   kApiUrlEndpoint3,
   API_TIMEOUT,
 } from '../config/WebServices';
-// import {fetch} from 'react-native-ssl-pinning';
-
+import {initializeSslPinning} from 'react-native-ssl-public-key-pinning';
 import {create} from 'apisauce';
+
+initializeSslPinning({
+  'themoviedb.org': {
+    includeSubdomains: true,
+    publicKeyHashes: [
+      '5VLcahb6x4EvvFrCF2TePZulWqrLHS2jCg9Ywv6JHog=',
+      '47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=',
+      // 'CLOmM1/OXvSPjw5UOYbAf9GKOxImEp9hhku9W90fHMk=',
+      // 'hxqRlPTu1bMS/0DITB1SSu0vd4u/8l8TjPgfaAp63Gc=',
+    ],
+  },
+}).catch(err => {
+  console.log(err);
+});
+
 const api = create({
   baseURL: kApiUrlEndpoint3,
   headers: {

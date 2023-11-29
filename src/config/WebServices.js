@@ -8,5 +8,5 @@ export const kApiPostItem = '/items';
 
 export const API_TIMEOUT = 60000;
 
-export const kApiGetPopularMoviews =
+export const kApiGetPopularMovies =
   '/3/movie/popular?language=en-US&page=1&limit=50';
